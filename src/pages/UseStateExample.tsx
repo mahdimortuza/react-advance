@@ -11,6 +11,7 @@ const UseStateExample = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = e.target.name;
     const value = e.target.value;
+
     console.log(inputName, value);
     setUser({ ...user, [inputName]: value });
   };

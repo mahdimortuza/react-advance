@@ -1,8 +1,8 @@
 import "./App.css";
-import UseStateExample from "./pages/UseStateExample";
+import UseReducerExample from "./pages/UseReducerExample";
 
 function App() {
-  return <UseStateExample />;
+  return <UseReducerExample />;
 }
 
 export default App;
