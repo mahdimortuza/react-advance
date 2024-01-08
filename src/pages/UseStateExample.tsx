@@ -1,16 +1,25 @@
-import { Dispatch } from "react";
+import React, { useState } from "react";
 
-type TCounter = {
-  counter: number;
-  setCounter: Dispatch<React.SetStateAction<number>>;
-};
+const UseStateExample = () => {
+  const [user, setUser] = useState({ name: "", email: "" });
 
-const UseStateExample = ({ counter, setCounter }: TCounter) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(user);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputName = e.target.name;
+    const value = e.target.value;
+    console.log(inputName, value);
+    setUser({ ...user, [inputName]: value });
+  };
   return (
-    <div>
-      <h1>{counter}</h1>
-      <button onClick={() => setCounter(counter + 1)}>increment</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input onChange={handleChange} name="name" type="text"></input>
+      <input onChange={handleChange} name="email" type="text"></input>
+      <button type="submit">submit</button>
+    </form>
   );
 };
 
