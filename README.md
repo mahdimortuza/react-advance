@@ -10,3 +10,5 @@
 - differences among render, event, effect
 - useEffect working system
 - timer using useEffect
+- AbortController in js
+- fetch cleanup and not using object as dependency
