@@ -1,14 +1,18 @@
-import { useReducer } from "react";
+import { ChangeEvent, useReducer } from "react";
 
-const initialState = { count: 0 };
+type TAction = {
+  type: string;
+  payload: string;
+};
+const initialState = { name: "", email: "" };
 
-const reducer = (currentState, action) => {
+const reducer = (currentState: typeof initialState, action: TAction) => {
   switch (action.type) {
-    case "increment":
-      return { count: currentState.count + 1 };
+    case "addName":
+      return { ...currentState, name: action.payload };
 
-    case "decrement":
-      return { count: currentState.count - 1 };
+    case "addEmail":
+      return { ...currentState, email: action.payload };
 
     default:
       return currentState;
@@ -17,12 +21,28 @@ const reducer = (currentState, action) => {
 
 const UseReducerExample = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(state);
+  };
   return (
-    <div>
-      <h1>{state.count}</h1>
-      <button onClick={() => dispatch({ type: "increment" })}>increment</button>
-      <button onClick={() => dispatch({ type: "decrement" })}>decrement</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        onChange={(e) => dispatch({ type: "addName", payload: e.target.value })}
+        name="name"
+        type="text"
+      ></input>
+
+      <input
+        onChange={(e) =>
+          dispatch({ type: "addEmail", payload: e.target.value })
+        }
+        name="email"
+        type="text"
+      ></input>
+      <button type="submit">submit</button>
+    </form>
   );
 };
 

@@ -4,4 +4,4 @@
 - useState and rerender on strict mode
 - useState batch update and async behavior
 - handle multiple state and usage of plain object as state
--
+- useReducer and switch
