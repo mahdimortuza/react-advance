@@ -15,3 +15,5 @@
 - useRef hook
 - accessing dom using useRef
 - forwardRef
+- provider pattern
+- global provider pattern using contextApi
