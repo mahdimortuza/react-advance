@@ -17,3 +17,4 @@
 - forwardRef
 - provider pattern
 - global provider pattern using contextApi
+- higher order function

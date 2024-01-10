@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import "./App.css";
-import { ThemeContext } from "./context/ThemeProvider";
+import { MenuItem, MenuList } from "./components/Menu";
+import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
 
 function App() {
-  const { dark, setDark } = useContext(ThemeContext);
+  const { dark, setDark } = useContext(ThemeContext) as TThemeContext;
   console.log(dark);
   return (
     <div
@@ -17,7 +18,9 @@ function App() {
       >
         toggle
       </button>
-      {/* <UseRefExample /> */}
+      <MenuList>
+        <MenuItem></MenuItem>
+      </MenuList>
     </div>
   );
 }
