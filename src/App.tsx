@@ -1,8 +1,8 @@
 import "./App.css";
-import UseEffectExample from "./pages/UseEffectExample";
+import UseRefExample from "./pages/UseRefExample";
 
 function App() {
-  return <UseEffectExample />;
+  return <UseRefExample />;
 }
 
 export default App;
