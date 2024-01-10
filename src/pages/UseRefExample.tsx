@@ -1,15 +1,14 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const UseRefExample = () => {
-  const myRef = useRef(null);
+  const myRef = useRef<HTMLInputElement | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(myRef.current.value);
-  };
+  useEffect(() => {
+    myRef.current?.focus();
+  }, []);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input ref={myRef} name="name" type="text"></input>
         <button type="submit">submit</button>
       </form>

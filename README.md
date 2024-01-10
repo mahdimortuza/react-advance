@@ -12,3 +12,5 @@
 - timer using useEffect
 - AbortController in js
 - fetch cleanup and not using object as dependency
+- useRef hook
+- accessing dom using useRef
